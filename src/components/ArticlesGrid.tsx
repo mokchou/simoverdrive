@@ -3,7 +3,7 @@ import ArticleCard from './ArticleCard'
 
 export default function ArticlesGrid() {
   return (
-    <section id="guides" className="py-16 md:py-24">
+    <section id="guides" className="py-16 md:py-24 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <div className="mb-12">

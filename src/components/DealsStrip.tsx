@@ -3,7 +3,7 @@ import DealCard from './DealCard'
 
 export default function DealsStrip() {
   return (
-    <section id="deals" className="bg-bg-card py-16 md:py-20">
+    <section id="deals" className="bg-bg-card py-16 md:py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <div className="mb-10">

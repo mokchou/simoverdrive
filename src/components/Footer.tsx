@@ -20,13 +20,18 @@ export default function Footer() {
               Site
             </h4>
             <ul className="space-y-2">
-              {['Guides', 'Avis', 'Deals', 'Setup'].map((item) => (
-                <li key={item}>
+              {[
+                { label: 'Guides', href: '#guides' },
+                { label: 'Avis', href: '#guides' },
+                { label: 'Deals', href: '#deals' },
+                { label: 'Setup', href: '#about' },
+              ].map((item) => (
+                <li key={item.label}>
                   <a
-                    href="#"
+                    href={item.href}
                     className="text-sm text-grey hover:text-white transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -38,13 +43,17 @@ export default function Footer() {
               Ressources
             </h4>
             <ul className="space-y-2">
-              {['Guide gratuit', 'Newsletter', 'FAQ'].map((item) => (
-                <li key={item}>
+              {[
+                { label: 'Guide gratuit', href: '#lead' },
+                { label: 'Newsletter', href: '#lead' },
+                { label: 'FAQ', href: '#' },
+              ].map((item) => (
+                <li key={item.label}>
                   <a
-                    href="#"
+                    href={item.href}
                     className="text-sm text-grey hover:text-white transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </li>
               ))}
