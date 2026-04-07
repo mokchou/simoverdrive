@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom'
 import type { Article } from '../data/articles'
 
 export default function ArticleCard({ article }: { article: Article }) {
-  return (
-    <a
-      href={article.url}
-      className="group block bg-bg-card border border-border rounded-lg overflow-hidden hover:border-l-2 hover:border-l-red hover:-translate-y-1 transition-all duration-200"
-    >
+  const isInternal = article.slug != null
+  const className =
+    'group block bg-bg-card border border-border rounded-lg overflow-hidden hover:border-l-2 hover:border-l-red hover:-translate-y-1 transition-all duration-200'
+
+  const content = (
+    <>
       {/* Image */}
       <div className="aspect-[3/2] overflow-hidden bg-border">
         <img
@@ -31,6 +33,20 @@ export default function ArticleCard({ article }: { article: Article }) {
           Lire →
         </span>
       </div>
+    </>
+  )
+
+  if (isInternal) {
+    return (
+      <Link to={article.url} className={className}>
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <a href={article.url} target="_blank" rel="noopener noreferrer" className={className}>
+      {content}
     </a>
   )
 }
