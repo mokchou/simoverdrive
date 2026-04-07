@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* ===== THEME ===== */
+@theme {
+  --color-bg: #0A0A0B;
+  --color-bg-card: #111113;
+  --color-bg-lead: #1A0305;
+  --color-red: #E8001C;
+  --color-red-glow: #E8001C40;
+  --color-white: #F5F0EB;
+  --color-grey: #8A8A8A;
+  --color-border: #1C1C1E;
+
+  --font-heading: "Orbitron", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-line-sweep: line-sweep 2s ease-in-out infinite;
+  --animate-speed-lines: speed-lines 3s linear infinite;
+  --animate-slow-zoom: slow-zoom 12s ease-in-out infinite alternate;
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes line-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes speed-lines {
+  0%   { background-position: 0 0; }
+  100% { background-position: -200px 0; }
+}
+
+@keyframes slow-zoom {
+  0%   { transform: scale(1.05) translateX(0); }
+  100% { transform: scale(1.25) translateX(-4%); }
+}
+
+/* ===== BASE ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #0A0A0B;
+    color: #F5F0EB;
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* ===== CUSTOM UTILITIES ===== */
+@layer utilities {
+  .carbon-texture {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+    background-size: 4px 4px;
+  }
+
+  .speed-lines {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(232, 0, 28, 0.03) 80px,
+      rgba(232, 0, 28, 0.03) 81px
+    );
+    animation: speed-lines 3s linear infinite;
+  }
+
+  .cta-fill {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .cta-fill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #E8001C;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+  .cta-fill:hover::before {
+    transform: scaleX(1);
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
